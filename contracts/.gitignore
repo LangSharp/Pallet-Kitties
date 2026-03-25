@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Hardhat
+artifacts/
+cache/
+typechain-types/
+
+# Environment
+.env
+.env.*
+
+# Compilation output
+compile-output/
+
+# Testing
+coverage/
+lcov.info
+
+# Misc
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Secrets
+*.pem
+*.key
+secrets/
