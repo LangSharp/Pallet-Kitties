@@ -1,6 +1,26 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ethers } from 'ethers';
 
+const CONFIG = {
+  CAT_NFT_ADDRESS: '0xAf179f782d478D57F16BC67F515BCe9Cbaac9f9D',
+  MARKETPLACE_ADDRESS: '0xd7a3677ED63C043648DAcAf1E3B5A516B63ED0da',
+  CHAIN_ID: '0xa869',
+  RPC_URL: 'https://api.avax-test.network/ext/bc/C/rpc'
+};
+
+const ABI = {
+  catNft: [
+    "function mintCat(string memory name, string memory imageURI, uint8 cuteness, string memory color) public returns (uint256)",
+    "function getCat(uint256 tokenId) public view returns (string memory name, string memory imageURI, uint8 cuteness, string memory color, uint256 price)",
+    "function getTotalCats() public view returns (uint256)",
+    "function ownerOf(uint256 tokenId) public view returns (address)"
+  ],
+  marketplace: [
+    "function listNFT(address nftContract, uint256 tokenId, uint256 price) public",
+    "function buyNFT(address nftContract, uint256 tokenId) public payable"
+  ]
+};
+
 const SAMPLE_CATS = [
   { id: 1, name: 'Whiskers', image: 'https://placekitten.com/400/400', cuteness: 98, color: 'Orange Tabby', price: 0.5 },
   { id: 2, name: 'Luna', image: 'https://placekitten.com/401/401', cuteness: 95, color: 'Black Panther', price: 0.8 },

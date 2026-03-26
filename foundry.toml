@@ -1,6 +1,12 @@
 [profile.default]
+src = "contracts"
+out = "out"
 libs = ["lib"]
-remappings = [
-    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
-    "openzeppelin-contracts/=lib/openzeppelin-contracts/"
-]
+solc = "0.8.19"
+
+[rpc_endpoints]
+avalanche = "https://api.avax.network/ext/bc/C/rpc"
+fuji = "https://api.avax-test.network/ext/bc/C/rpc?apikey=0x8a3a45e125e81a31064ad5c0229509e566585fee78001c1888961e1b5b5e9812"
+
+[profile.default.fuji]
+chain-id = 43113
